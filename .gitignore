@@ -1,0 +1,26 @@
+# Editor config
+.idea
+# For wordpress
+# ignore everything in the "wp-content" directory, except:
+/*
+!wp-content/
+# "mu-plugins", "plugins", "themes" directory
+wp-content/*
+!wp-content/mu-plugins/
+!wp-content/plugins/
+!wp-content/themes/
+
+# ignore these plugins
+wp-content/plugins/
+
+# ignore specific themes
+
+
+# ignore node dependency directories
+# wp-content/themes/.../node_modules/
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+/wp-content/plugins/
