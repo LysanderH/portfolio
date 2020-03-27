@@ -7,6 +7,7 @@ Le projet portfolio est comme son nom l'indique, un projet pour me créer un por
 * Branding
     * [Concept](./branding/concept)
     * [Moodboard](https://lysander464196.invisionapp.com/board/Portfolio-ck6c87mdk00tb19ulfj10xjkf?v=sIMA6fFxx%2Bj8PFaRs2%2F3mw%3D%3D&linkshare=urlcopied)
+    * [Copy & change](https://lysander464196.invisionapp.com/board/Portfolio-ck6c87mdk00tb19ulfj10xjkf?v=sIMA6fFxx%2Bj8PFaRs2%2F3mw%3D%3D&linkshare=urlcopied)
     * [Logo](branding/logo)
     * [design](branding/design)
 
