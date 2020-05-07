@@ -1,0 +1,14 @@
+# Ignore all on root except .gitignore and development
+/*
+!.gitignore
+!development/
+
+# Ignore everithing in development except wp-content
+development/*
+!development/wp-content
+
+development/wp-content/*
+!development/wp-content/themes
+
+development/wp-content/themes/protfolio/node_modules
+development/wp-content/themes/twenty*/
