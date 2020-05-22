@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
 
-    <title><?= port_get_title('-', true); ?></title>
+    <title><?= portfolio_get_title('-', true); ?></title>
 
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -63,7 +63,7 @@
     <!--    Facebook open graph TODO: Twitter and FACEBOOK card    -->
     <meta property="og:url" content="<?= $_SERVER['HTTP_HOST']; ?>">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= port_get_title('-', true); ?>">
+    <meta property="og:title" content="<?= portfolio_get_title('-', true); ?>">
     <meta property="og:image" content="https://example.com/image.jpg">
     <meta property="og:image:alt" content="Screenshot du portfolio de Lysander Hans">
     <meta property="og:description"
@@ -85,16 +85,16 @@
           content="Screenshot du portfolio de Lysander Hans">
 
     <!--stylesheets-->
-    <link rel="stylesheet" href="<?= port_get_theme_asset('assets/css/bundle.css'); ?>">
+    <link rel="stylesheet" href="<?= portfolio_get_theme_asset('assets/css/bundle.css'); ?>">
 
 </head>
 <body>
 <header class="header">
-    <h1 role="heading" aria-level="1"><?= port_get_title('-', false); ?></h1>
+    <h1 role="heading" aria-level="1"><?= portfolio_get_title('-', false); ?></h1>
     <nav class="nav" role="navigation" aria-label="Principale">
         <h2 class="nav__heading" role="heading" aria-level="2">Navigation principale</h2>
         <ul class="nav__list">
-            <?php foreach (port_get_menu('main', 'nav__link') as $i => $link): ?>
+            <?php foreach (portfolio_get_menu('main', 'nav__link') as $i => $link): ?>
                 <li class="nav__item">
                     <a href="<?= $link->url; ?>"
                         <?php if ($link->target): ?> target="<?= $link->target; ?>" rel="noopener noreferrer"<?php endif; ?>
