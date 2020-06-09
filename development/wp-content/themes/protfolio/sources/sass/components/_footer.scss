@@ -1,0 +1,16 @@
+.footer {
+  padding: 10px;
+  margin-top: auto;
+  &__list {
+    display: flex;
+    justify-content: center;
+  }
+  &__link {
+    @include lato(12px, $white);
+    padding: .5em 1em;
+    transition: color .2s ease-in-out;
+    &:hover {
+      color: $green;
+    }
+  }
+}

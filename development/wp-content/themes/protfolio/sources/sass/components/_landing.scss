@@ -1,0 +1,113 @@
+.landing {
+  @include media-query(0, 1200px) {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 530px;
+    margin: auto;
+  }
+  @include mq('desktop-wide') {
+
+
+  }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: calc-percent(10px, 1600px);
+  height: 90vh;
+
+  &__img {
+    @include mq('desktop-wide') {
+      width: calc-percent(471.35px, 795px);
+
+    }
+    margin-left: auto;
+    align-self: center;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+
+    &--link {
+      flex-direction: row;
+      padding-left: calc-percent(104px, 795px);
+      @include media-query(0,760px){
+        align-self: start;
+      }
+      @include mq('tablet-small'){
+      }
+    }
+  }
+
+  &__hello {
+    @include canon(16px, $white);
+  }
+
+  &__tagline {
+    @include mq('desktop-wide') {
+      @include lato(55px, $white);
+      width: calc-percent(536px, 795px);
+      max-width: 536px;
+    }
+    @include lato(30px, $white, bold);
+    margin-top: 1.45rem;
+  }
+
+  &__paragraph {
+    @include media-query(0, 760px) {
+      @include lato(16px, $white, $lh: 1.2);
+      margin-top: 1.45rem;
+    }
+    @include lato(20px, $white, $lh: 1.5);
+    margin: 1.45rem 0 0 calc-percent(120px, 795px);
+
+    @include mq('desktop-wide') {
+      width: 520px;
+    }
+  }
+
+  &__link {
+    @include lato(16px, $white);
+    padding: 1em;
+    transition: color .2s ease-in-out;
+    @include media-query(0,760px) {
+      padding-left: 6.5px;
+    }
+    &:hover {
+      color: $green;
+    }
+  }
+
+  &__scroll {
+    grid-column: 1 / span 2;
+    align-self: center;
+    margin-top: auto;
+
+    @include lato(16px, $white);
+    text-align: center;
+    height: 100px;
+    @include media-query(0, 760px){
+      display: none;
+    }
+    &:after {
+      @include pseudo($pos: relative);
+      width: 2px;
+      height: calc(100% - 1.2em);
+      background: $purple;
+      position: relative;
+      left: 50%;
+    }
+
+    &:before {
+      @include pseudo($pos: relative);
+      width: 150px;
+      height: 8px;
+      background: $purple;
+      position: relative;
+      left: calc(50% - 75px);
+      top: 1.2em;
+      z-index: -1;
+    }
+  }
+}

@@ -3,7 +3,10 @@
 <head>
     <meta charset="UTF-8">
 
-    <title><?= portfolio_get_title('-', true); ?></title>
+    <title><?= wp_title(); ?></title>
+    <!--Yoast SEO here-->
+    <?php do_action('wpseo_head'); ?>
+    <!--Yoast SEO end here-->
 
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
@@ -12,17 +15,6 @@
 
     <!-- Theme Color for Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#000">
-
-    <!-- This content *may* be used as a part of search engine results. -->
-    <meta name="description"
-          content="Portfolio de Lysander Hans étudiant en Design graphique à la hepl en option web-multimédia">
-
-    <!-- Control the behavior of search engine crawling and indexing -->
-    <meta name="robots" content="index,follow"><!-- All Search Engines -->
-    <meta name="googlebot" content="index,follow"><!-- Google Specific -->
-
-    <!-- Tells Google not to show the sitelinks search box -->
-    <meta name="google" content="nositelinkssearchbox">
 
     <!-- Tells Google not to provide a translation for this document -->
     <meta name="google" content="notranslate">
@@ -37,17 +29,8 @@
     <!-- Gives a general age rating based on the document's content -->
     <meta name="rating" content="General">
 
-    <!-- Allows control over how referrer information is passed -->
-    <meta name="referrer" content="no-referrer">
-
     <!-- Disable automatic detection and formatting of possible phone numbers -->
     <meta name="format-detection" content="telephone=no">
-
-    <!-- Completely opt out of DNS prefetching by setting to "off" -->
-    <meta http-equiv="x-dns-prefetch-control" content="off">
-
-    <!-- Specifies the document to appear in a specific frame -->
-    <meta http-equiv="Window-Target" content="_value">
 
     <!-- Geo tags -->
     <meta name="ICBM" content="50.6833,5.55">
@@ -60,48 +43,26 @@
     <link rel="me" href="mailto:lysander.hans@hotmail.com">
     <link rel="me" href="tel:0032471553304">
 
-    <!--    Facebook open graph TODO: Twitter and FACEBOOK card    -->
-    <meta property="og:url" content="<?= $_SERVER['HTTP_HOST']; ?>">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="<?= portfolio_get_title('-', true); ?>">
-    <meta property="og:image" content="https://example.com/image.jpg">
-    <meta property="og:image:alt" content="Screenshot du portfolio de Lysander Hans">
-    <meta property="og:description"
-          content="Le portfolio de Lysander Hans développeur-web belge qui vient de La Calamine">
-    <meta property="og:site_name" content="<?= bloginfo('name'); ?>">
-    <meta property="og:locale" content="fr_BE">
-    <meta property="article:author" content="Hans Lysander">
-
-    <!--    twitter card    -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@LysanderHans">
-    <meta name="twitter:creator" content="@LysanderHans">
-    <meta name="twitter:url" content="<?= $_SERVER['HTTP_HOST']; ?>">
-    <meta name="twitter:title" content="Portfolio de Lysander Hans">
-    <meta name="twitter:description"
-          content="Le portfolio de Lysander Hans développeur-web belge qui vient de La Calamine">
-    <meta name="twitter:image" content="https://example.com/image.jpg">
-    <meta name="twitter:image:alt"
-          content="Screenshot du portfolio de Lysander Hans">
-
     <!--stylesheets-->
     <link rel="stylesheet" href="<?= portfolio_get_theme_asset('assets/css/bundle.css'); ?>">
 
 </head>
 <body>
 <header class="header">
-    <h1 role="heading" aria-level="1"><?= portfolio_get_title('-', false); ?></h1>
-    <nav class="nav" role="navigation" aria-label="Principale">
-        <h2 class="nav__heading" role="heading" aria-level="2">Navigation principale</h2>
-        <ul class="nav__list">
+    <a class="skip-main" href="#main">Allez au contenu principal</a>
+    <h1 role="heading" aria-level="1" class="header__heading sro"><?= the_title(); ?></h1>
+    <a href="<?php echo esc_url(get_permalink(get_page_by_title('Accueil'))); ?>" class="header__name">Hans Lysander</a>
+    <nav class="global" role=menu aria-label="<?= __('Principale'); ?>">
+        <h2 class="global__heading sro" role="heading" aria-level="2"><?= __('Navigation principale', 'portfolio'); ?></h2>
+        <ul class="global__list">
             <?php foreach (portfolio_get_menu('main', 'nav__link') as $i => $link): ?>
-                <li class="nav__item">
+                <li class="global__item">
                     <a href="<?= $link->url; ?>"
                         <?php if ($link->target): ?> target="<?= $link->target; ?>" rel="noopener noreferrer"<?php endif; ?>
                         <?php if ($link->current): ?> aria-current="page"<?php endif; ?>
                        class="<?php if ($link->classes): ?>
                    <?= implode('', $link->classes); ?>
-                   <?php endif; ?>"><?= $link->label; ?>
+                   <?php endif; ?> global__link"><?= $link->label; ?>
                     </a>
                 </li>
             <?php endforeach; ?>
@@ -109,4 +70,4 @@
     </nav>
 </header>
 
-<main>
+<main class="main">

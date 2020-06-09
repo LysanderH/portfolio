@@ -1,4 +1,5 @@
 // Settings
+@import "settings/variables";
 @import "settings/colors";
 @import "settings/fonts";
 @import "settings/breakpoints";
@@ -12,6 +13,7 @@
 @import "functions/margin-auto";
 @import "functions/pseudo";
 @import "functions/media-queries";
+@import "functions/btn-reset";
 
 // Generic
 @import "generic/reset";
@@ -19,5 +21,15 @@
 
 // Elements or base
 @import "elements/base";
+@import "elements/fonts";
 
 // Components
+@import "components/skip-main";
+@import "components/header";
+@import "components/global";
+@import "components/landing";
+@import "components/about";
+@import "components/front-projets";
+@import "components/cta";
+@import "components/footer";
+@import "components/contact-form";

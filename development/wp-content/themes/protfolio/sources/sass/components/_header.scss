@@ -1,0 +1,18 @@
+.header {
+  display: flex;
+  align-items: center;
+  padding: 0 calc-percent(110px, 1600px);
+  min-height: 10vh;
+  @include media-query(0, 760px){
+    flex-direction: column;
+  }
+  &__name {
+    @include canon(48px, $white);
+    text-decoration: none;
+    transition: color .2s ease-in-out;
+
+    &:hover, &:focus {
+      color: $green;
+    }
+  }
+}

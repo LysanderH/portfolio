@@ -8,17 +8,17 @@ $projectsLoop = new WP_Query([
 
 get_header();
 ?>
-<?php if (have_posts()): while (have_posts()): the_post(); ?>
+<?php if ($projectsLoop->have_posts()): while ($projectsLoop->have_posts()): $projectsLoop->the_post(); ?>
     <article class="post">
         <h2><?= the_title(); ?></h2>
-        <?php the_post_thumbnail('', ['class' => 'post__thumbnail']); ?>
+        <img src="<?php the_post_thumbnail_url('front-project'); ?>"
+             alt="Image montrant le projet <?= the_title(); ?>" class="post__img">
         <p class="post__excerpt"><?php the_excerpt(); ?></p>
-        <a href="<?php the_permalink(); ?>" class="post__link">Voir le projet
+        <a href="<?php the_permalink(); ?>" class="post__link"><?= __('Voir le projet', 'portfolio'); ?>
             <span class="sro">"<?= the_title(); ?>"</span></a>
     </article>
     <?php wp_reset_query(); ?>
 <?php endwhile; endif; ?>
-
     <div class="pagination">
         <?= paginate_links([
             'format' => '?projects-pagination=%#%',

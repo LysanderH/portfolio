@@ -1,0 +1,118 @@
+.front-projects {
+  margin-top: 10em;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  @include media-query(0, 760px) {
+    display: flex;
+    flex-direction: column;
+  }
+  &__heading {
+    @include lato(39px, $white);
+    text-align: center;
+    min-height: 80px;
+    grid-column: 1 / span 3;
+
+    &:after {
+      @include pseudo($pos: relative);
+      width: 2px;
+      height: 1em;
+      background: $purple;
+      left: 50%;
+    }
+
+    &:before {
+      @include pseudo($pos: relative);
+      width: 150px;
+      height: 8px;
+      background: $purple;
+      left: calc(50% - 75px);
+      top: 1em;
+      z-index: -1;
+    }
+  }
+}
+
+.front-project {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0 calc-percent(69.835px, 526.67px) 3em calc-percent(69.835px, 526.67px);
+  &:before {
+    @include pseudo();
+    width: 100%;
+    height: 100%;
+    background: $background-projects;
+    top: 0;
+    left: 0;
+    z-index: -1;
+  }
+  &__heading {
+    @include lato(31.25px, $white);
+    text-align: center;
+    grid-column: 1 / span 3;
+    padding-top: 1em;
+    margin-bottom: 1.45rem;
+
+    &:after {
+      @include pseudo();
+      width: 2px;
+      height: 1em;
+      background: $purple;
+      left: 50%;
+      top: 0;
+    }
+
+    &:before {
+      @include pseudo();
+      width: 250px;
+      height: 8px;
+      background: $purple;
+      left: calc(50% - 125px);
+      top: 1em;
+      z-index: -1;
+    }
+  }
+
+  &__img {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.45rem;
+  }
+
+  &__content {
+    @include lato(16px, $white, $lh: 1.6);
+    margin-bottom: 1.45rem;
+
+  }
+
+  &__permalink {
+    margin-top: auto;
+    padding: 1em 0;
+    text-align: right;
+    transition: color .2s ease-in-out;
+    z-index: 0;
+
+    &:hover, :focus {
+      color: $green;
+    }
+  }
+
+  &__link--all {
+    @include canon(16px, $white);
+    padding: 0.5em 0.8em;
+    background: $purple;
+    grid-column: 1/ span 3;
+    justify-self: center;
+    margin-top: 3em;
+    text-decoration: none;
+    transition: background-color .2s ease-in-out;
+    @include media-query(0, 760px) {
+      align-self: center;
+    }
+    &:hover {
+      background: $purple-dark;
+    }
+  }
+}

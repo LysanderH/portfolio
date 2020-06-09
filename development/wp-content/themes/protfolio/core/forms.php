@@ -57,6 +57,7 @@ function portfolio_handleForm()
     }
 
     if ($errors['errors']) {
+        /** @noinspection PhpVoidFunctionResultUsedInspection */
         return portfolio_formRedirectFeedback($action, $errors);
     }
 
@@ -68,6 +69,7 @@ function portfolio_handleForm()
     $content .= $message;
 
     if (wp_mail('lysander.hans@hotmail.com', 'Contact de Lysanderhans.com', $content)) {
+        /** @noinspection PhpVoidFunctionResultUsedInspection */
         return portfolio_formRedirectFeedback($action, [
             'success' => true,
             'sendMessage' => __('Merci ! Votre message a été envoyé.', 'portfolio')

@@ -1,0 +1,23 @@
+.global {
+  display: flex;
+  margin-left: auto;
+  &__list {
+    display: flex;
+    align-items: flex-end;
+    margin-left: auto;
+    padding-right: 5%;
+    justify-content: center;
+  }
+  &__link {
+    padding: 11.6px 23.2px;
+    text-decoration: none;
+    display: inline-block;
+    @include lato(20px, $white);
+    transition: color .2s ease-in-out;
+    &:hover, &:focus {
+      color: $green;
+    }
+  
+  }
+}
+

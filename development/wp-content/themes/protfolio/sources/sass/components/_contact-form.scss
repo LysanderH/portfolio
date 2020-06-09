@@ -1,0 +1,141 @@
+.contact {
+  display: flex;
+  flex-direction: column;
+  @include media-query(0, 800px){
+    padding: 0 24.5px;
+  }
+  &__heading {
+    @include lato(39px, $white);
+    text-align: center;
+    min-height: 80px;
+
+    &:after {
+      @include pseudo($pos: relative);
+      width: 2px;
+      height: 1em;
+      background: $purple;
+      left: 50%;
+    }
+
+    &:before {
+      @include pseudo($pos: relative);
+      width: 150px;
+      height: 8px;
+      background: $purple;
+      position: relative;
+      left: calc(50% - 75px);
+      top: 1em;
+      z-index: -1;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    @include media-query(0, 470px){
+      margin: 0;
+    }
+  }
+
+  &__element {
+    display: flex;
+    align-items: flex-end;
+    border-bottom: 1px solid $purple;
+    max-width: 450px;
+    @include media-query(0, 470px){
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+
+  &__input {
+    border: none;
+    background: transparent;
+    margin-left: auto;
+    @include lato(22px, $white);
+    @include media-query(0, 470px){
+      margin-left: 0;
+    }
+    &:focus{
+      background: rgba(201, 53, 171, .2);
+    }
+    &--textarea {
+      margin-left: 0;
+      background: rgba(201, 53, 171, .2);
+      max-width: 1140px;
+      &:focus{
+        background: rgba(201, 53, 171, .5);
+      }
+    }
+  }
+
+  &__submit {
+    @include button-reset();
+    align-self: flex-end;
+    @include lato(18px, $white);
+    background: $purple;
+    padding: 0.5em 1em;
+    transition: background-color .2s ease-in-out;
+    margin-top: 1em;
+    &:hover, &:focus {
+      background: $purple-dark;
+    }
+  }
+
+  &__error {
+    @include lato(16px, red);
+  }
+
+  &__label {
+    @include lato(22px, $white);
+    margin-top: 1em;
+    margin-bottom: 0.3em;
+
+    &--checkbox {
+      position: relative;
+      padding-left: 18px;
+    }
+  }
+
+  &__checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+    &-span {
+      &:after {
+        content: "";
+        position: absolute;
+        display: none;
+        left: 3px;
+        top: 0px;
+        width: 5px;
+        height: 10px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        transform: rotate(45deg);
+      }
+    }
+    &:focus ~ .contact__checkbox-span {
+      border: 2px solid $purple-dark;
+    }
+    &:checked ~ .contact__checkbox-span {
+      border: 2px solid $purple-dark;
+      &:after {
+        display: block;
+      }
+    }
+
+    &-span {
+      width: 15px;
+      height: 15px;
+      border: 1px solid $purple;
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}

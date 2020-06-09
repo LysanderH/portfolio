@@ -1,0 +1,35 @@
+.cta {
+  display: flex;
+  flex-direction: column;
+  background: $purple;
+  margin-top: 7em;
+  min-height: 20.375em;
+  justify-content: center;
+  align-content: center;
+  @include media-query(0, 760px) {
+    padding: 2em 1em;
+  }
+  &__span {
+    @include lato(22px, $white);
+    text-align: center;
+  }
+
+  &__paragraph {
+    @include lato(45px);
+    text-align: center;
+    margin: 2.45rem;
+  }
+
+  &__link {
+    padding: 0.5em 1em;
+    text-decoration: none;
+    border: 1px solid $green;
+    align-self: center;
+    transition: background-color .2s ease-in-out, color .2s ease-in-out;
+
+    &:hover, &:focus {
+      background: #84146D;
+      color: $green;
+    }
+  }
+}

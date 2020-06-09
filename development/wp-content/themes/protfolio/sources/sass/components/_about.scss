@@ -1,0 +1,41 @@
+.about {
+  margin-top: 5em;
+
+
+  &__heading {
+    @include lato(39px, $white);
+    text-align: center;
+    min-height: 80px;
+
+    &:after {
+      @include pseudo($pos: relative);
+      width: 2px;
+      height: 1em;
+      background: $purple;
+      left: 50%;
+    }
+
+    &:before {
+      @include pseudo($pos: relative);
+      width: 150px;
+      height: 8px;
+      background: $purple;
+      position: relative;
+      left: calc(50% - 75px);
+      top: 1em;
+      z-index: -1;
+    }
+  }
+
+  &__text {
+    @include mq('desktop-wide'){
+      margin: 1.45rem auto;
+      @include lato(20px, $white, $lh: 1.5);
+      width: calc-percent(680px, 1600px);
+    }
+    @include media-query(0,760px){
+      @include lato(16px, $white, $lh: 1.5);
+      padding: 20px;
+    }
+  }
+}
