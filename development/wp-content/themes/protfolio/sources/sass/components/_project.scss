@@ -1,0 +1,148 @@
+.project {
+  display: flex;
+  flex-direction: column;
+  max-width: 1000px;
+  margin: auto;
+  @include media-query(0, 1076px){
+    padding: 2.45rem;
+  }
+
+  &__client {
+    @include lato(20px, $white);
+    margin: 2.45rem 1rem;
+  }
+
+  &__heading {
+    @include lato(39px, $white);
+    text-align: center;
+    min-height: 80px;
+
+    &:after {
+      @include pseudo($pos: relative);
+      width: 2px;
+      height: 1em;
+      background: $purple;
+      left: 50%;
+    }
+
+    &:before {
+      @include pseudo($pos: relative);
+      width: 150px;
+      height: 8px;
+      background: $purple;
+      position: relative;
+      left: calc(50% - 75px);
+      top: 1em;
+      z-index: -1;
+    }
+  }
+
+  &__link {
+    @include lato(18px, $white);
+    margin-bottom: 2.45rem;
+    text-decoration: none;
+    background-color: $purple;
+    align-self: center;
+    padding: .5em 1em;
+
+    &:hover, &:focus {
+      background-color: $purple-dark;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2.45rem;
+  }
+
+  &__wysiwyg {
+    margin-bottom: 2.45rem;
+    & h1 {
+      display: none;
+    }
+
+    & h2 {
+      display: none;
+    }
+
+    & h3 {
+      @include lato(31.25px, $white);
+      text-align: center;
+      min-height: 80px;
+
+      &:after {
+        @include pseudo($pos: relative);
+        width: 2px;
+        height: 1em;
+        background: $purple;
+        left: 50%;
+      }
+
+      &:before {
+        @include pseudo($pos: relative);
+        width: 150px;
+        height: 8px;
+        background: $purple;
+        position: relative;
+        left: calc(50% - 75px);
+        top: 1em;
+        z-index: -1;
+      }
+    }
+
+    & h4 {
+      @include lato(25px, $white);
+      margin-bottom: 1.5rem;
+    }
+
+    & h5 {
+      @include lato(20px, $white);
+      margin-bottom: 1.225rem;
+    }
+    & h6 {
+      @include lato(16px, $white);
+      margin-bottom: 1rem;
+    }
+
+    & p {
+      @include lato(16px, $white, $lh: 1.6);
+      margin-bottom: 2.45rem;
+    }
+
+    & pre {
+
+    }
+
+    & ul {
+      list-style-type: disc;
+      list-style-position: inside;
+      & li ul {
+        margin-left: 1.225rem;
+        & li ul {
+          margin-left: 2.45rem;
+        }
+      }
+    }
+
+    ol {
+      list-style-type: decimal;
+      list-style-position: inside;
+      & li ol {
+        margin-left: 1.225rem;
+        & li ol {
+          margin-left: 2.45rem;
+        }
+      }
+    }
+
+    & li {
+      @include lato(16px, $white, $lh: 1.6);
+    }
+
+    & iframe {
+      float: left;
+    }
+  }
+
+}
