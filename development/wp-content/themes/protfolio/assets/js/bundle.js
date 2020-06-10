@@ -90,10 +90,153 @@
 /*!******************************!*\
   !*** ./sources/js/bundle.js ***!
   \******************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-console.log('hello world');
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _line__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./line */ "./sources/js/line.js");
+
+var app = {
+  canvas: document.getElementById("canvas"),
+  c: null,
+  Line: _line__WEBPACK_IMPORTED_MODULE_0__["Line"],
+  lines: [],
+  // posY: 0,
+  // speed: 10,
+  // startPosY: 0,
+  // posX: 0,
+  init: function init() {
+    var _this = this;
+
+    this.c = this.canvas.getContext('2d');
+    this.canvas.height = window.innerHeight;
+    this.canvas.width = window.innerWidth;
+    this.lines.push(new _line__WEBPACK_IMPORTED_MODULE_0__["Line"](app));
+    console.log(this.lines);
+    this.lines.forEach(function (item) {
+      item.init(_this);
+    }); // this.posX = this.canvas.width * Math.random();
+    // this.speed = 10 * Math.random() + 10;
+
+    this.animate();
+  },
+  // drawLine() {
+  //     this.c.beginPath();
+  //     this.c.strokeStyle = '#C935AB';
+  //     this.c.moveTo(this.posX, this.startPosY);
+  //     this.c.lineTo(this.posX, this.posY);
+  //     this.c.stroke();
+  // },
+  // moveLine() {
+  //     document.addEventListener('scroll', () => {
+  //     })
+  //     this.posY += this.speed;
+  //
+  //     if (this.posY > this.canvas.height) {
+  //         this.posY += 0;
+  //         this.startPosY += this.speed;
+  //     }
+  //     if (this.startPosY > this.canvas.height) {
+  //         this.posY = 0;
+  //         this.startPosY = 0;
+  //         this.posX = this.canvas.width * Math.random();
+  //
+  //     }
+  // },
+  animate: function animate() {
+    var _this2 = this;
+
+    this.c.clearRect(0, 0, this.canvas.width, this.canvas.height); // this.moveLine();
+    // this.drawLine();
+
+    this.lines.forEach(function (item) {
+      item.moveLine();
+      item.drawLine(); // if (item.startPosY > this.canvas.height){
+      //     this.lines.)
+      // }
+    });
+    requestAnimationFrame(function () {
+      _this2.animate();
+    });
+  }
+};
+app.init();
+
+/***/ }),
+
+/***/ "./sources/js/line.js":
+/*!****************************!*\
+  !*** ./sources/js/line.js ***!
+  \****************************/
+/*! exports provided: Line */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "Line", function() { return Line; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Line = /*#__PURE__*/function () {
+  function Line(app) {
+    var posY = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    var speed = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 10;
+    var startPosY = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
+    var posX = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
+
+    _classCallCheck(this, Line);
+
+    this.app = app;
+    this.posY = 0;
+    this.posX = this.app.canvas.width * Math.random();
+    this.speed = 10 * Math.random() + 10;
+    this.startPosY = 0;
+  }
+
+  _createClass(Line, [{
+    key: "init",
+    value: function init(app) {
+      this.app = app;
+      this.posX = this.app.canvas.width * Math.random();
+      this.speed = 10 * Math.random() + 10;
+    }
+  }, {
+    key: "drawLine",
+    value: function drawLine() {
+      this.app.c.beginPath();
+      this.app.c.strokeStyle = '#C935AB';
+      this.app.c.moveTo(this.posX, this.startPosY);
+      this.app.c.lineTo(this.posX, this.posY);
+      this.app.c.stroke();
+    }
+  }, {
+    key: "moveLine",
+    value: function moveLine() {
+      this.posY += this.speed;
+
+      if (this.posY > this.app.canvas.height) {
+        this.posY += 0;
+        this.startPosY += this.speed;
+      }
+
+      if (this.startPosY >= this.app.canvas.height) {
+        this.posY = 0;
+        this.startPosY = 0;
+        this.app.lines.splice(0, 1);
+        this.app.lines.push(new Line(this.app)); // this.app.lines = this.app.lines.filter(item => item !== this.posX);
+        //
+
+        console.log(this.app.lines);
+      }
+    }
+  }]);
+
+  return Line;
+}();
 
 /***/ }),
 

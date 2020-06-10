@@ -70,7 +70,7 @@ $feedback = portfolio_formFeedback('portfolio_custom_form_treatment');
     <div class="cta">
         <span class="cta__span"><?= __('Vous voulez voir mes projets?', 'portfolio'); ?></span>
         <p class="cta__paragraph"><?= __('Voici le lien vers la page des projets', 'portfolio'); ?></p>
-        <a href="<?php get_page_by_title('Projets'); ?>" class="cta__link"><?= __('Projets', 'portfolio'); ?></a>
+        <a href="<?= get_permalink(get_page_by_title('Projets')); ?>" class="cta__link"><?= __('Projets', 'portfolio'); ?></a>
     </div>
 
 <?php get_footer(); ?>

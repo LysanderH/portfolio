@@ -15,6 +15,8 @@
     </ul>
 </footer>
 <?php wp_footer(); ?>
+<canvas id="canvas" class="canvas"></canvas>
+
 <script src="<?= portfolio_get_theme_asset('/assets/js/bundle.js'); ?>"></script>
 </body>
 </html>

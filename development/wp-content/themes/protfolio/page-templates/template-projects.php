@@ -38,7 +38,7 @@ get_header();
     <div class="cta">
         <span class="cta__span"><?= __('Vous voulez me contacter?', 'portfolio'); ?></span>
         <p class="cta__paragraph"><?= __('Voici le lien vers le formulaire de contact', 'portfolio'); ?></p>
-        <a href="<?php get_page_by_title('Contact'); ?>" class="cta__link"><?= __('Contact', 'portfolio'); ?></a>
+        <a href="<?= get_permalink(get_page_by_title('Contact')); ?>" class="cta__link"><?= __('Contact', 'portfolio'); ?></a>
     </div>
 
 <?php get_footer(); ?>
