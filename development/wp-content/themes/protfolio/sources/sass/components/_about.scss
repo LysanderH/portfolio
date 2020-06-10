@@ -1,5 +1,7 @@
 .about {
-  margin-top: 5em;
+  @include mq('tablet'){
+    margin-top: 5em;
+  }
 
 
   &__heading {
@@ -28,13 +30,19 @@
   }
 
   &__text {
-    @include mq('desktop-wide'){
+    @include lato(20px, $white, $lh: 1.5);
+
+    @include mq('desktop-wide') {
       margin: 1.45rem auto;
-      @include lato(20px, $white, $lh: 1.5);
       width: calc-percent(680px, 1600px);
     }
-    @include media-query(0,760px){
-      @include lato(16px, $white, $lh: 1.5);
+    @include media-query(760px, 1400px) {
+      width: 60%;
+      margin: 1.45rem auto;
+
+    }
+
+    @include media-query(0, 760px) {
       padding: 20px;
     }
   }

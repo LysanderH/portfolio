@@ -1,4 +1,5 @@
 .landing {
+  padding: 20px;
   @include media-query(0, 1200px) {
     display: flex;
     flex-direction: column;
@@ -6,10 +7,7 @@
     max-width: 530px;
     margin: auto;
   }
-  @include mq('desktop-wide') {
 
-
-  }
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: calc-percent(10px, 1600px);
@@ -18,9 +16,12 @@
   &__img {
     @include mq('desktop-wide') {
       width: calc-percent(471.35px, 795px);
-
     }
+    width: calc-percent(471.35px, 795px);
     margin-left: auto;
+    @include media-query(0, 1200px){
+      margin-left: 0;
+    }
     align-self: center;
   }
 
@@ -32,26 +33,32 @@
     &--link {
       flex-direction: row;
       padding-left: calc-percent(104px, 795px);
-      @include media-query(0,760px){
-        align-self: start;
-      }
-      @include mq('tablet-small'){
-      }
+      align-self: start;
     }
   }
 
   &__hello {
     @include canon(16px, $white);
+    &:after {
+      @include pseudo();
+      width: 30px;
+      height: 4px;
+      background-color: $green;
+      margin-top: .4em;
+    }
   }
 
   &__tagline {
     @include mq('desktop-wide') {
-      @include lato(55px, $white);
+      @include lato(50px, $white);
       width: calc-percent(536px, 795px);
-      max-width: 536px;
     }
     @include lato(30px, $white, bold);
     margin-top: 1.45rem;
+    @include media-query(0, 1280px){
+      max-width: 536px;
+    }
+
   }
 
   &__paragraph {

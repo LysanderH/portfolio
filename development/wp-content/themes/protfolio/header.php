@@ -16,9 +16,6 @@
     <!-- Theme Color for Chrome, Firefox OS and Opera -->
     <meta name="theme-color" content="#000">
 
-    <!-- Tells Google not to provide a translation for this document -->
-    <meta name="google" content="notranslate">
-
     <!-- Identify the software used to build the document (i.e. - WordPress, Dreamweaver) -->
     <meta name="generator" content="WordPress">
 
@@ -42,6 +39,24 @@
     <!-- Provides information about an author or another person -->
     <link rel="me" href="mailto:lysander.hans@hotmail.com">
     <link rel="me" href="tel:0032471553304">
+
+    <link rel="apple-touch-icon" sizes="57x57" href="<?= portfolio_get_theme_asset('assets/img/favicon/apple-icon-57x57.png'); ?>">
+    <link rel="apple-touch-icon" sizes="60x60" href="<?= portfolio_get_theme_asset('assets/img/favicon/apple-icon-60x60.png'); ?>">
+    <link rel="apple-touch-icon" sizes="72x72" href="<?= portfolio_get_theme_asset('assets/img/favicon/apple-icon-72x72.png'); ?>">
+    <link rel="apple-touch-icon" sizes="76x76" href="<?= portfolio_get_theme_asset('assets/img/favicon/apple-icon-76x76.png'); ?>">
+    <link rel="apple-touch-icon" sizes="114x114" href="<?= portfolio_get_theme_asset('assets/img/favicon/apple-icon-114x114.png'); ?>">
+    <link rel="apple-touch-icon" sizes="120x120" href="<?= portfolio_get_theme_asset('assets/img/favicon/apple-icon-120x120.png'); ?>">
+    <link rel="apple-touch-icon" sizes="144x144" href="<?= portfolio_get_theme_asset('assets/img/favicon/apple-icon-144x144.png'); ?>">
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= portfolio_get_theme_asset('assets/img/favicon/apple-icon-152x152.png'); ?>">
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= portfolio_get_theme_asset('assets/img/favicon/apple-icon-180x180.png'); ?>">
+    <link rel="icon" type="image/png" sizes="192x192"  href="<?= portfolio_get_theme_asset('assets/img/favicon/android-icon-192x192.png'); ?>">
+    <link rel="icon" type="image/png" sizes="32x32" href="<?= portfolio_get_theme_asset('assets/img/favicon/favicon-32x32.png'); ?>">
+    <link rel="icon" type="image/png" sizes="96x96" href="<?= portfolio_get_theme_asset('assets/img/favicon/favicon-96x96.png'); ?>">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?= portfolio_get_theme_asset('assets/img/favicon/favicon-16x16.png'); ?>">
+    <link rel="manifest" href="<?= portfolio_get_theme_asset('assets/img/favicon/manifest.json'); ?>">
+    <meta name="msapplication-TileColor" content="#84146D">
+    <meta name="msapplication-TileImage" content="<?= portfolio_get_theme_asset('assets/img/favicon/ms-icon-144x144.png'); ?>">
+    <meta name="theme-color" content="#84146D">
 
     <!--stylesheets-->
     <link rel="stylesheet" href="<?= portfolio_get_theme_asset('assets/css/bundle.css'); ?>">

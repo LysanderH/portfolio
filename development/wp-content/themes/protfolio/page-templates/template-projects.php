@@ -2,7 +2,7 @@
 
 $projectsLoop = new WP_Query([
     'post_type' => 'project',
-    'post_per_page' => 5,
+    'post_per_page' => 1,
     'paged' => get_query_var('projects-pagination') ?: 1,
 ]);
 
@@ -21,24 +21,25 @@ get_header();
                         <span class="sro">"<?= the_title(); ?>"</span></a>
                 </div>
 
-                <img src="<?php the_post_thumbnail_url('front-project'); ?>"
+                <img src="<?php the_post_thumbnail_url('projects'); ?>"
                      alt="Image montrant le projet <?= the_title(); ?>" class="post__img">
             </article>
             <?php wp_reset_query(); ?>
         <?php endwhile; endif; ?>
-        <div class="pagination">
-            <?= paginate_links([
-                'format' => '?projects-pagination=%#%',
-                'current' => get_query_var('projects-pagination') ?: 1,
-                'total' => $projectsLoop->max_num_pages
-            ]); ?>
-        </div>
     </section>
-
+    <div class="pagination">
+        <?= paginate_links([
+            'format' => '?projects-pagination=%#%',
+            'current' => get_query_var('projects-pagination') ?: 1,
+            'total' => $projectsLoop->max_num_pages
+        ]); ?>
+    </div>
     <div class="cta">
         <span class="cta__span"><?= __('Vous voulez me contacter?', 'portfolio'); ?></span>
         <p class="cta__paragraph"><?= __('Voici le lien vers le formulaire de contact', 'portfolio'); ?></p>
         <a href="<?= get_permalink(get_page_by_title('Contact')); ?>" class="cta__link"><?= __('Contact', 'portfolio'); ?></a>
     </div>
 
+<canvas id="canvas" class="canvas"></canvas>
 <?php get_footer(); ?>
+

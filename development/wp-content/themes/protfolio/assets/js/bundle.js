@@ -102,59 +102,36 @@ var app = {
   c: null,
   Line: _line__WEBPACK_IMPORTED_MODULE_0__["Line"],
   lines: [],
-  // posY: 0,
-  // speed: 10,
-  // startPosY: 0,
-  // posX: 0,
+  scroll: 0,
   init: function init() {
     var _this = this;
 
     this.c = this.canvas.getContext('2d');
     this.canvas.height = window.innerHeight;
     this.canvas.width = window.innerWidth;
+    window.addEventListener('resize', function () {
+      _this.canvas.height = window.innerHeight;
+      _this.canvas.width = window.innerWidth;
+    });
     this.lines.push(new _line__WEBPACK_IMPORTED_MODULE_0__["Line"](app));
-    console.log(this.lines);
+    this.lines.push(new _line__WEBPACK_IMPORTED_MODULE_0__["Line"](app));
+    this.lines.push(new _line__WEBPACK_IMPORTED_MODULE_0__["Line"](app));
+    this.lines.push(new _line__WEBPACK_IMPORTED_MODULE_0__["Line"](app));
+    this.lines.push(new _line__WEBPACK_IMPORTED_MODULE_0__["Line"](app));
+    this.lines.push(new _line__WEBPACK_IMPORTED_MODULE_0__["Line"](app));
+    this.lines.push(new _line__WEBPACK_IMPORTED_MODULE_0__["Line"](app));
     this.lines.forEach(function (item) {
       item.init(_this);
-    }); // this.posX = this.canvas.width * Math.random();
-    // this.speed = 10 * Math.random() + 10;
-
+    });
     this.animate();
   },
-  // drawLine() {
-  //     this.c.beginPath();
-  //     this.c.strokeStyle = '#C935AB';
-  //     this.c.moveTo(this.posX, this.startPosY);
-  //     this.c.lineTo(this.posX, this.posY);
-  //     this.c.stroke();
-  // },
-  // moveLine() {
-  //     document.addEventListener('scroll', () => {
-  //     })
-  //     this.posY += this.speed;
-  //
-  //     if (this.posY > this.canvas.height) {
-  //         this.posY += 0;
-  //         this.startPosY += this.speed;
-  //     }
-  //     if (this.startPosY > this.canvas.height) {
-  //         this.posY = 0;
-  //         this.startPosY = 0;
-  //         this.posX = this.canvas.width * Math.random();
-  //
-  //     }
-  // },
   animate: function animate() {
     var _this2 = this;
 
-    this.c.clearRect(0, 0, this.canvas.width, this.canvas.height); // this.moveLine();
-    // this.drawLine();
-
+    this.c.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.lines.forEach(function (item) {
       item.moveLine();
-      item.drawLine(); // if (item.startPosY > this.canvas.height){
-      //     this.lines.)
-      // }
+      item.drawLine();
     });
     requestAnimationFrame(function () {
       _this2.animate();
@@ -187,14 +164,24 @@ var Line = /*#__PURE__*/function () {
     var speed = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 10;
     var startPosY = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 0;
     var posX = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 0;
+    var greenOrPurple = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 0;
+    var color = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : '';
 
     _classCallCheck(this, Line);
 
     this.app = app;
     this.posY = 0;
     this.posX = this.app.canvas.width * Math.random();
-    this.speed = 10 * Math.random() + 10;
+    this.speed = 5 * Math.random() + 5;
     this.startPosY = 0;
+    this.greenOrPurple = Math.random();
+    this.color = "";
+
+    if (this.greenOrPurple > 0.5) {
+      this.color = "#C935AB";
+    } else {
+      this.color = "#52D3B4";
+    }
   }
 
   _createClass(Line, [{
@@ -203,12 +190,18 @@ var Line = /*#__PURE__*/function () {
       this.app = app;
       this.posX = this.app.canvas.width * Math.random();
       this.speed = 10 * Math.random() + 10;
+
+      if (this.greenOrPurple > 0.5) {
+        this.color = "#C935AB";
+      } else {
+        this.color = "#52D3B4";
+      }
     }
   }, {
     key: "drawLine",
     value: function drawLine() {
       this.app.c.beginPath();
-      this.app.c.strokeStyle = '#C935AB';
+      this.app.c.strokeStyle = this.color;
       this.app.c.moveTo(this.posX, this.startPosY);
       this.app.c.lineTo(this.posX, this.posY);
       this.app.c.stroke();
@@ -216,6 +209,8 @@ var Line = /*#__PURE__*/function () {
   }, {
     key: "moveLine",
     value: function moveLine() {
+      var _this = this;
+
       this.posY += this.speed;
 
       if (this.posY > this.app.canvas.height) {
@@ -226,11 +221,10 @@ var Line = /*#__PURE__*/function () {
       if (this.startPosY >= this.app.canvas.height) {
         this.posY = 0;
         this.startPosY = 0;
-        this.app.lines.splice(0, 1);
-        this.app.lines.push(new Line(this.app)); // this.app.lines = this.app.lines.filter(item => item !== this.posX);
-        //
-
-        console.log(this.app.lines);
+        this.app.lines = this.app.lines.filter(function (item) {
+          return item !== _this;
+        });
+        this.app.lines.push(new Line(this.app));
       }
     }
   }]);

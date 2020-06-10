@@ -43,7 +43,8 @@ $projectsLoop = new WP_Query([
             <img src="<?php the_post_thumbnail_url('front-project'); ?>"
                  alt="Image montrant le projet <?= the_title(); ?>" class="front-project__img">
             <p class="front-project__content"><?= get_the_excerpt(); ?></p>
-            <a href="<?php the_permalink(); ?>" class="front-project__permalink"><?= __('Voir le projet', 'portfolio'); ?>
+            <a href="<?php the_permalink(); ?>"
+               class="front-project__permalink"><?= __('Voir le projet', 'portfolio'); ?>
                 <span class="front-project__span sro"> <?= the_title(); ?></span>
             </a>
         </article>
@@ -51,7 +52,7 @@ $projectsLoop = new WP_Query([
     <?php else: ?>
         <p><?= __('Il n’y a pas de projets pour le moment', 'portfolio'); ?></p>
     <?php endif; ?>
-    <a href="<?php get_page_by_title('Contact'); ?>"
+    <a href="<?= get_permalink(get_page_by_title('Projets')); ?>"
        class="front-project__link--all btn"><?= __('Tous les projets', 'portfolio'); ?></a>
 
 </section>
@@ -60,7 +61,9 @@ $projectsLoop = new WP_Query([
 <div class="cta">
     <span class="cta__span"><?= __('Vous voulez me contacter?', 'portfolio'); ?></span>
     <p class="cta__paragraph"><?= __('Voici le lien vers le formulaire de contact', 'portfolio'); ?></p>
-    <a href="<?= get_permalink(get_page_by_title('Contact')); ?>" class="cta__link"><?= __('Contact', 'portfolio'); ?></a>
+    <a href="<?= get_permalink(get_page_by_title('Contact')); ?>"
+       class="cta__link"><?= __('Contact', 'portfolio'); ?></a>
 </div>
+<canvas id="canvas" class="canvas"></canvas>
 
 <?php get_footer(); ?>

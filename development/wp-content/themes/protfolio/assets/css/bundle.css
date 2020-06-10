@@ -478,6 +478,7 @@ body {
   align-items: center;
   padding: 0 6.875%;
   min-height: 10vh;
+  flex-wrap: wrap;
 }
 .header__name {
   font-family: "IM Fell French Canon SC", serif;
@@ -497,6 +498,7 @@ body {
   display: -ms-flexbox;
   display: flex;
   margin-left: auto;
+  max-width: 100%;
 }
 .global__list {
   display: -webkit-box;
@@ -523,12 +525,14 @@ body {
 }
 
 .landing {
+  padding: 20px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-column-gap: 0.625%;
   height: 90vh;
 }
 .landing__img {
+  width: 59.2893081761%;
   margin-left: auto;
   align-self: center;
 }
@@ -543,12 +547,22 @@ body {
 .landing__wrapper--link {
   flex-direction: row;
   padding-left: 13.0817610063%;
+  align-self: start;
 }
 .landing__hello {
   font-family: "IM Fell French Canon SC", serif;
   font-size: 16px;
   font-size: 1rem;
   color: #fff;
+}
+.landing__hello:after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 30px;
+  height: 4px;
+  background-color: #52D3B4;
+  margin-top: 0.4em;
 }
 .landing__tagline {
   font-family: "Lato", sans-serif;
@@ -610,10 +624,6 @@ body {
   top: 1.2em;
   z-index: -1;
 }
-
-.about {
-  margin-top: 5em;
-}
 .about__heading {
   font-family: "Lato", sans-serif;
   font-size: 39px;
@@ -642,6 +652,13 @@ body {
   left: calc(50% - 75px);
   top: 1em;
   z-index: -1;
+}
+.about__text {
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+  font-size: 1.25rem;
+  color: #fff;
+  line-height: 1.5;
 }
 
 .front-projects {
@@ -1055,7 +1072,7 @@ body {
   margin-bottom: 2.45rem;
 }
 .post__img {
-  max-width: 42.5%;
+  max-width: 456px;
   height: auto;
   align-self: center;
 }
@@ -1259,18 +1276,50 @@ body {
 }
 
 .canvas {
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
-  z-index: -1;
+  z-index: -2;
+}
+
+.pagination {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+
+.page-numbers {
+  font-family: "Lato", sans-serif;
+  font-size: 16px;
+  font-size: 1rem;
+  display: inline-block;
+  padding: 0.2em 0.5em;
+}
+
+.current {
+  color: #52D3B4;
+}
+
+.conditions {
+  max-width: 850px;
+  padding: 25px;
+  margin: auto;
 }
 
 @media screen and (min-width: 0) and (max-width: 760px) {
   .header {
     flex-direction: column;
+    margin-top: 1em;
   }
-  .landing__wrapper--link {
-    align-self: start;
+  .global {
+    margin-left: 0;
+  }
+  .global__link {
+    font-family: "Lato", sans-serif;
+    font-size: 16px;
+    font-size: 1rem;
   }
   .landing__paragraph {
     font-family: "Lato", sans-serif;
@@ -1287,11 +1336,6 @@ body {
     display: none;
   }
   .about__text {
-    font-family: "Lato", sans-serif;
-    font-size: 16px;
-    font-size: 1rem;
-    color: #fff;
-    line-height: 1.5;
     padding: 20px;
   }
   .front-projects {
@@ -1309,6 +1353,15 @@ body {
   }
 }
 
+@media screen and (min-width: 0) and (max-width: 365px) {
+  .header__name {
+    font-family: "IM Fell French Canon SC", serif;
+    font-size: 30px;
+    font-size: 1.875rem;
+    color: #fff;
+  }
+}
+
 @media screen and (min-width: 0) and (max-width: 1200px) {
   .landing {
     display: -webkit-box;
@@ -1320,6 +1373,9 @@ body {
     max-width: 530px;
     margin: auto;
   }
+  .landing__img {
+    margin-left: 0;
+  }
 }
 
 @media only screen and (min-width: 1400px) {
@@ -1328,23 +1384,36 @@ body {
   }
   .landing__tagline {
     font-family: "Lato", sans-serif;
-    font-size: 55px;
-    font-size: 3.4375rem;
+    font-size: 50px;
+    font-size: 3.125rem;
     color: #fff;
     width: 67.4213836478%;
-    max-width: 536px;
   }
   .landing__paragraph {
     width: 520px;
   }
   .about__text {
     margin: 1.45rem auto;
-    font-family: "Lato", sans-serif;
-    font-size: 20px;
-    font-size: 1.25rem;
-    color: #fff;
-    line-height: 1.5;
     width: 42.5%;
+  }
+}
+
+@media screen and (min-width: 0) and (max-width: 1280px) {
+  .landing__tagline {
+    max-width: 536px;
+  }
+}
+
+@media only screen and (min-width: 923px) {
+  .about {
+    margin-top: 5em;
+  }
+}
+
+@media screen and (min-width: 760px) and (max-width: 1400px) {
+  .about__text {
+    width: 60%;
+    margin: 1.45rem auto;
   }
 }
 
@@ -1376,8 +1445,7 @@ body {
   }
   .post__img {
     width: 100%;
-    max-width: none;
-    align-self: stretch;
+    align-self: center;
   }
 }
 

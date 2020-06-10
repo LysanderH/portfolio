@@ -1,12 +1,17 @@
 .global {
   display: flex;
   margin-left: auto;
+  max-width: 100%;
+  @include media-query(0, 760px){
+    margin-left: 0;
+  }
   &__list {
     display: flex;
     align-items: flex-end;
     margin-left: auto;
     padding-right: 5%;
     justify-content: center;
+
   }
   &__link {
     padding: 11.6px 23.2px;
@@ -14,7 +19,10 @@
     display: inline-block;
     @include lato(20px, $white);
     transition: color .2s ease-in-out;
-    &:hover, &:focus {
+    @include media-query(0, 760px) {
+      @include lato(16px);
+    }
+      &:hover, &:focus {
       color: $green;
     }
   

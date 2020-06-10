@@ -1,0 +1,13 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 2em;
+}
+.page-numbers {
+  @include lato(16px);
+  display: inline-block;
+  padding: .2em .5em;
+}
+.current {
+  color: $green;
+}

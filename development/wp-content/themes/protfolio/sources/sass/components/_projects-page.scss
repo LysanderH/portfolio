@@ -62,13 +62,12 @@
 
   &__img {
     //margin-left: auto;
-    max-width: calc-percent(680px, 1600px);
+    max-width: 456px;
     height: auto;
     align-self: center;
     @include media-query(0, 960px){
       width: 100%;
-      max-width: none;
-      align-self: stretch;
+      align-self: center;
     }
   }
   &__heading {

@@ -3,8 +3,8 @@
     <article class="project">
         <h2 class="project__heading"><?= the_title(); ?></h2>
         <span class="project__client"><?= get_field('client'); ?></span>
-        <img src="<?php the_post_thumbnail_url('front-project'); ?>"
-             alt="Image montrant le projet <?= the_title(); ?>" class="project__img">
+        <img src="<?php the_post_thumbnail_url('project'); ?>"
+             alt="Image montrant le projet <?= the_title(); ?>" srcset="<?php the_post_thumbnail_url('project-small'); ?> 375w, <?php the_post_thumbnail_url('project-mid'); ?> 768w, <?php the_post_thumbnail_url('project'); ?> 1024w" class="project__img">
         <a href="<?php get_field('project-link') ?>" class="project__link">Voir le projet <span class="sro"><?= the_title(); ?></span></a>
         <div class="project__wysiwyg">
             <?php the_content(); ?>
