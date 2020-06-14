@@ -31,7 +31,7 @@
 
   &__text {
     @include lato(20px, $white, $lh: 1.5);
-
+    text-align: center;
     @include mq('desktop-wide') {
       margin: 1.45rem auto;
       width: calc-percent(680px, 1600px);
